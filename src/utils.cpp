@@ -38,4 +38,15 @@ const std::vector<std::vector<uint32_t>> split2numbers(const std::string input) 
   }
   return result;
 }
+
+const std::vector<std::string> split(const std::string input, const char delim) {
+  auto ss = std::stringstream{input};
+
+  auto result = std::vector<std::string>{};
+  for (std::string line; std::getline(ss, line, delim);) {
+    result.push_back(line);
+  }
+  return result;
+}
+
 } // namespace utils

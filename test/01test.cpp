@@ -1,7 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include <d01.cpp>
 #include <string>
-#include <utils.cpp>
 #include <utils.hpp>
 
 const std::vector<std::vector<uint32_t>> test_input = {

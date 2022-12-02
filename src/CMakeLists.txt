@@ -1,7 +1,7 @@
 add_executable(aoc2022 main.cpp)
 
 set(P_LIBS
-  utils.hpp
+  utils.cpp
   d01.cpp
   d02.cpp
   d03.cpp
