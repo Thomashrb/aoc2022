@@ -2,6 +2,7 @@
 #include <array>
 #include <cstdint>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -11,10 +12,7 @@ const int part_one(std::vector<std::vector<uint32_t>> calorie_lists) {
   uint32_t list_sum;
 
   for (auto cs : calorie_lists) {
-    list_sum = 0;
-    for (uint32_t c : cs) {
-      list_sum += c;
-    }
+    list_sum = std::accumulate(cs.begin(), cs.end(), 0);
     if (max_calories < list_sum) {
       max_calories = list_sum;
     }
@@ -38,14 +36,11 @@ const int part_two(std::vector<std::vector<uint32_t>> calorie_lists) {
   uint32_t list_sum;
 
   for (auto cs : calorie_lists) {
-    list_sum = 0;
-    for (uint32_t c : cs) {
-      list_sum += c;
-    }
+    list_sum = std::accumulate(cs.begin(), cs.end(), 0);
     max3(&top3_calories, list_sum);
   }
 
-  return top3_calories.at(0) + top3_calories.at(1) + top3_calories.at(2);
+  return std::accumulate(top3_calories.begin(), top3_calories.end(), 0);
 }
 
 } // namespace d01

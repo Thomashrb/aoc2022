@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -26,11 +27,11 @@ return 0;
 }
 
 int part_one(std::vector<std::string> guide) {
-  uint32_t result = 0;
-  for (std::string line: guide){
-    result += resolve_result_one(line);
-  }
-  return result;
+ auto resolve_fold = [](uint32_t acc, std::string s) {
+    return acc + resolve_result_one(s);
+  };
+
+  return std::accumulate(guide.begin(), guide.end(), 0, resolve_fold);
 }
 
 // X lose
@@ -53,10 +54,10 @@ return 0;
 
 
 int part_two(std::vector<std::string> guide) {
-  uint32_t result = 0;
-  for (std::string line: guide){
-    result += resolve_result_two(line);
-  }
-  return result;
+  auto resolve_fold = [](uint32_t acc, std::string s) {
+    return acc + resolve_result_two(s);
+  };
+
+  return std::accumulate(guide.begin(), guide.end(), 0, resolve_fold);
 };
 } // namespace d02

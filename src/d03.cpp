@@ -1,46 +1,29 @@
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <unordered_set>
 #include <vector>
 
 namespace d03 {
 std::unordered_set<char> intersection(std::string s1, std::string s2) {
-  std::string accumulator;
+  std::string acc;
   std::unordered_set<char> result;
 
   std::sort(s1.begin(), s1.end());
   std::sort(s2.begin(), s2.end());
   std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                        std::back_inserter(accumulator));
+                        std::back_inserter(acc));
 
-  for (char c : accumulator) {
+  for (char c : acc) {
     result.insert(c);
   }
 
   return result;
 }
 
-std::unordered_set<char> intersection(std::string s1,
-                                      std::unordered_set<char> set) {
-  std::string accumulator;
-  std::unordered_set<char> result;
-  std::string s2;
-
-  for (char c : set) {
-    s2 += c;
-  }
-
-  std::sort(s1.begin(), s1.end());
-  std::sort(s2.begin(), s2.end());
-  std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                        std::back_inserter(accumulator));
-
-  for (char c : accumulator) {
-    result.insert(c);
-  }
-
-  return result;
+std::unordered_set<char> intersection(std::string s1, std::unordered_set<char> set) {
+  return intersection(s1, std::accumulate(set.begin(), set.end(), std::string()));
 }
 
 const uint32_t valueof(char c) {
