@@ -11,14 +11,6 @@ TEST_CASE("load_input loads ... something") {
   REQUIRE(raw_input.length() != 0);
 }
 
-TEST_CASE("split2numbers splits to numbers") {
-  const auto s = "1\n2\n\n3\n4\n\n";
-  const std::vector<std::vector<uint32_t>> n = {{1, 2}, {3, 4}};
-  const auto numbers = utils::split2numbers(s);
-
-  REQUIRE(numbers == n);
-}
-
 TEST_CASE("split splits on newline") {
   const auto s = "1\n2\n3\n4\n";
   const std::vector<std::string> n = {"1", "2", "3", "4"};

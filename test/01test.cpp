@@ -8,7 +8,7 @@ const std::vector<std::vector<uint32_t>> test_input = {
 
 
 const std::string raw_input = utils::load_input("d01input.txt");
-const std::vector<std::vector<uint32_t>> input = utils::split2numbers(raw_input);
+const std::vector<std::vector<uint32_t>> input = d01::split2numbers(raw_input);
 
 TEST_CASE("Day 01-1 test", "[part 1]") {
   int calories = d01::part_one(::test_input);

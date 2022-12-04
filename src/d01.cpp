@@ -5,8 +5,28 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <sstream>
 
 namespace d01 {
+// one quirk of this is that double newline at the end of the file is
+// required i tried fixing it with using ss.eof but unfortunately
+// that didnt work, leaving it as is atm
+const std::vector<std::vector<uint32_t>> split2numbers(const std::string input) {
+  auto ss = std::stringstream{input};
+
+  auto result = std::vector<std::vector<uint32_t>>{};
+  auto group = std::vector<uint32_t>{};
+  for (std::string line; std::getline(ss, line, '\n');) {
+    if (line.empty()) {
+      result.push_back(group);
+      group.clear();
+      continue;
+    }
+    group.push_back(std::stoi(line));
+  }
+  return result;
+}
+
 const int part_one(std::vector<std::vector<uint32_t>> calorie_lists) {
   uint32_t max_calories = 0;
   uint32_t list_sum;
