@@ -1,10 +1,6 @@
 #include "utils.hpp"
-#include <algorithm>
 #include <catch2/catch_test_macros.hpp>
 #include <d05.cpp>
-#include <iostream>
-#include <stack>
-#include <vector>
 
 const std::vector<std::stack<char>> test_stacks() {
    std::stack<char> s1;
