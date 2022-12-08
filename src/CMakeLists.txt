@@ -9,9 +9,9 @@ set(P_LIBS
   d05.cpp
   d06.cpp
   d07.cpp
-  d08.cpp
-  d09.cpp
-  d10.cpp
+  #  d08.cpp
+  #  d09.cpp
+  #  d10.cpp
 )
 
 add_library(aoc2022_lib ${P_LIBS})

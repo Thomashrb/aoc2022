@@ -8,9 +8,9 @@ set(UNIT_TESTS
   05test
   06test
   07test
-  08test
-  09test
-  10test
+  #  08test
+  #  09test
+  #  10test
 )
 
 foreach(_test ${UNIT_TESTS})
