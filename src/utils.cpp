@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include <cstddef>
 #include <cstdio>
 #include <fstream>
 #include <iostream>
@@ -29,4 +30,16 @@ const std::vector<std::string> split(const std::string input, const char delim) 
   return result;
 }
 
+uint32_t to_uint32(const std::string& str) {
+  uint32_t result = 0;
+  for (const auto& c : str) {
+    if (!std::isdigit(c)) {
+      std::cout << "Error: " << str << " is not a number" << std::endl;
+      return 0;
+    }
+    result *= 10;
+    result += c - '0';
+  }
+  return result;
+}
 } // namespace utils
